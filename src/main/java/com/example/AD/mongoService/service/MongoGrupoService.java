@@ -1,5 +1,6 @@
 package com.example.AD.mongoService.service;
 
+import com.example.AD.mongoService.excepciones.IdExcepcion;
 import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
 import com.example.AD.mongoService.repository.GrupoRepository;
@@ -36,7 +37,10 @@ public class MongoGrupoService {
     }
 
     public void updateByIdService(String id, GrupoDTO grupoDTO){
-        Grupo grupo = new Grupo(grupoDTO.getNome(), grupoDTO.getXenero(), grupoDTO.getDataFormacion());
-        grupoRepository.updateByid(id, grupo);
+        Grupo grupo = grupoRepository.findById(id).orElseThrow(() -> new IdExcepcion("No existe el id del grupo"));
+        grupo.setNome(grupoDTO.getNome());
+        grupo.setXenero(grupoDTO.getXenero());
+        grupo.setDataFormacion(grupoDTO.getDataFormacion());
+        grupoRepository.save(grupo);
     }
 }

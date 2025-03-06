@@ -11,5 +11,4 @@ public interface GrupoRepository extends MongoRepository<Grupo, String> {
 
     List<Grupo> findByid(String id);
 
-    void updateByid(String id, Grupo grupo);
 }

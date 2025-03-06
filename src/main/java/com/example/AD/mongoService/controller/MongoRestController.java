@@ -49,4 +49,14 @@ public class MongoRestController {
         }
     }
 
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity<String> borrarDocumentoMongo(@PathVariable String id){
+        try{
+            mongoGrupoService.deleteByIdService(id);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Documento eliminado correctamente");
+    }
+
 }

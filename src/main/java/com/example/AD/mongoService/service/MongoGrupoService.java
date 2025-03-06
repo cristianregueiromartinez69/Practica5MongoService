@@ -17,7 +17,7 @@ public class MongoGrupoService {
     }
 
     public void crearGrupo(GrupoDTO grupoDTO) {
-        Grupo grupo = new Grupo(grupoDTO.getId(), grupoDTO.getNome(),
+        Grupo grupo = new Grupo(grupoDTO.getNome(),
                 grupoDTO.getXenero(), grupoDTO.getDataFormacion());
         grupoRepository.save(grupo);
 

@@ -21,10 +21,7 @@ public class MongoRestController {
     @PostMapping("/crear")
     public ResponseEntity<String> crearDocumentoMongo(@RequestBody GrupoDTO grupoDTO) {
         try{
-            System.out.println("Documento: " + "\nId: " + grupoDTO.getId() +
-                    "\nNome: " + grupoDTO.getNome() +
-                    "\nGenero: " + grupoDTO.getXenero() +
-                    "\nFecha: " + grupoDTO.getDataFormacion());
+
             mongoGrupoService.crearGrupo(grupoDTO);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

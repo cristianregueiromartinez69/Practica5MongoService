@@ -4,25 +4,17 @@ import java.time.LocalDate;
 
 public class GrupoDTO {
 
-    private String id;
     private String nome;
     private String xenero;
     private LocalDate dataFormacion;
 
-    public GrupoDTO(String id, String nome, String xenero, LocalDate dataFormacion) {
-        this.id = id;
+
+    public GrupoDTO(String nome, String xenero, LocalDate dataFormacion) {
         this.nome = nome;
         this.xenero = xenero;
         this.dataFormacion = dataFormacion;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

@@ -44,6 +44,19 @@ public class MongoAlbumService {
         return albumRepository.findAll();
     }
 
+    public void updateAlbumByIdService(String id, AlbumDTO albumDTO) {
+        Album album = albumRepository.findByid(id);
+        if(album != null){
+            album.setTitulo(albumDTO.getTitulo());
+            album.setData_lanzamento(albumDTO.getData_lanzamento());
+            album.setPuntuacion(albumDTO.getPuntuacion());
+            albumRepository.save(album);
+        }
+        else{
+            throw new IdExcepcion("Este id no pertenece a un album");
+        }
+    }
+
     private boolean getIdGrupo(String id){
         List<Grupo> grupoList = grupoRepository.findAll();
         for (Grupo grupo : grupoList) {

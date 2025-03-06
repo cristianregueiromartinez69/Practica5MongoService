@@ -57,4 +57,14 @@ public class MongoAlbumRestController {
             return ResponseEntity.badRequest().body(null);
         }
     }
+
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<String> actualizarAlbumByIdController(@PathVariable String id, @RequestBody AlbumDTO albumDTO) {
+        try{
+            mongoAlbumService.updateAlbumByIdService(id, albumDTO);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Album actualizado correctamente");
+    }
 }

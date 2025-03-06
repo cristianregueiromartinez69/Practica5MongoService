@@ -5,17 +5,32 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+/**
+ * Entidad de albumes con el documento
+ * @author cristian
+ * @version 1.0
+ */
 @Document(collection = "albums")
 public class Album {
 
+    //clave primaria
     @Id
     private String id;
 
+    //atributos de clase
     private String grupo_id;
     private String titulo;
     private LocalDate data_lanzamento;
     private float puntuacion;
 
+    /**
+     * Constructor de la clase
+     * @param id la clave primaria
+     * @param grupo_id el id del grupo al que pertenece el album
+     * @param titulo el titulo del album
+     * @param data_lanzamento la fecha de lanzamiento del album
+     * @param puntuacion la puntuacion del album
+     */
     public Album(String id, String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
         this.id = id;
         this.grupo_id = grupo_id;
@@ -35,6 +50,7 @@ public class Album {
 
     }
 
+    //getter y setter
     public String getId() {
         return id;
     }

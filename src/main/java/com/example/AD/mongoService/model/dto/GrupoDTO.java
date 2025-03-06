@@ -2,20 +2,32 @@ package com.example.AD.mongoService.model.dto;
 
 import java.time.LocalDate;
 
+/**
+ * Clase DTO de grupo
+ * @author cristian
+ * @version 1.0
+ */
 public class GrupoDTO {
 
+    //atributos de clase
     private String nome;
     private String xenero;
     private LocalDate dataFormacion;
 
 
+    /**
+     * Constructor de la clase
+     * @param nome el nombre del grupo
+     * @param xenero el genero del grupo
+     * @param dataFormacion la fecha de formacion del grupo
+     */
     public GrupoDTO(String nome, String xenero, LocalDate dataFormacion) {
         this.nome = nome;
         this.xenero = xenero;
         this.dataFormacion = dataFormacion;
     }
 
-
+    //getter y setter
     public String getNome() {
         return nome;
     }

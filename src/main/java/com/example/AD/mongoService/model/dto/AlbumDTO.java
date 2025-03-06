@@ -2,15 +2,28 @@ package com.example.AD.mongoService.model.dto;
 
 import java.time.LocalDate;
 
+
+/**
+ * Clase DTO de album
+ * @author cristian
+ * @version 1.0
+ */
 public class AlbumDTO {
 
-
+    //atributos de clase
     private String grupo_id;
     private String titulo;
     private LocalDate data_lanzamento;
     private float puntuacion;
 
 
+    /**
+     * Constructor de la clase
+     * @param grupo_id el id del grupo
+     * @param titulo el titulo del album
+     * @param data_lanzamento la fecha de lanzamiento
+     * @param puntuacion la puntuacion del album
+     */
     public AlbumDTO(String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
         this.grupo_id = grupo_id;
         this.titulo = titulo;
@@ -21,6 +34,7 @@ public class AlbumDTO {
     public AlbumDTO() {
     }
 
+    //getter y setter
     public String getGrupo_id() {
         return grupo_id;
     }

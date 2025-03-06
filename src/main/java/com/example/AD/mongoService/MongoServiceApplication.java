@@ -12,4 +12,5 @@ public class MongoServiceApplication {
 		SpringApplication.run(MongoServiceApplication.class, args);
 	}
 
+	//TODO: vamos a la segunda entidad
 }

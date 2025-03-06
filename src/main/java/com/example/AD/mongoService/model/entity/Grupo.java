@@ -1,5 +1,7 @@
 package com.example.AD.mongoService.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import nonapi.io.github.classgraph.json.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,8 +13,14 @@ public class Grupo {
     @Id
     private String id;
 
+    @JsonProperty("nome")
     private String nome;
+
+    @JsonProperty("xenero")
     private String xenero;
+
+    @JsonProperty("dataFormacion")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataFormacion;
 
     public Grupo(String id, String nome, String xenero, LocalDate dataFormacion) {

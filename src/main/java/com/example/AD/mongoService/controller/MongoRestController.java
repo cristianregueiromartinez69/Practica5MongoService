@@ -3,17 +3,13 @@ package com.example.AD.mongoService.controller;
 import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
 import com.example.AD.mongoService.service.MongoGrupoService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/mongoService")
+@RequestMapping("/Practica5MongoService")
 public class MongoRestController {
 
     public final MongoGrupoService mongoGrupoService;
@@ -25,6 +21,10 @@ public class MongoRestController {
     @PostMapping("/crear")
     public ResponseEntity<String> crearDocumentoMongo(@RequestBody GrupoDTO grupoDTO) {
         try{
+            System.out.println("Documento: " + "\nId: " + grupoDTO.getId() +
+                    "\nNome: " + grupoDTO.getNome() +
+                    "\nGenero: " + grupoDTO.getXenero() +
+                    "\nFecha: " + grupoDTO.getDataFormacion());
             mongoGrupoService.crearGrupo(grupoDTO);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

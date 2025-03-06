@@ -26,4 +26,8 @@ public class MongoGrupoService {
     public List<Grupo> getListGrupo(){
         return grupoRepository.findAll();
     }
+
+    public List<Grupo> getListGrupoById(String id){
+
+    }
 }

@@ -42,4 +42,14 @@ public class MongoRestController {
         }
     }
 
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<List<Grupo>> listarGruposMongoByID(@PathVariable String id){
+        try{
+            List<Grupo> grupoList = mongoGrupoService.getListGrupoById(id);
+            return ResponseEntity.ok().body(grupoList);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
 }

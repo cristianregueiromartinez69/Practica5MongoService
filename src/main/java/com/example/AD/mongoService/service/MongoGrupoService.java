@@ -28,6 +28,6 @@ public class MongoGrupoService {
     }
 
     public List<Grupo> getListGrupoById(String id){
-
+        return grupoRepository.findByid(id);
     }
 }

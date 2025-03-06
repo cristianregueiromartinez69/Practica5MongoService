@@ -8,16 +8,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * Clase rest controller de albumes
+ * @author cristian
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/Practica5MongoService/album")
 public class MongoAlbumRestController {
 
+    //servicio de albumes
     private final MongoAlbumService mongoAlbumService;
 
+    /**
+     * Constructor de la clase
+     * @param mongoAlbumService el servicio de albumes
+     */
     public MongoAlbumRestController(MongoAlbumService mongoAlbumService) {
         this.mongoAlbumService = mongoAlbumService;
     }
 
+    /**
+     * Metodo post para crear el album
+     * @param albumDTO el abum dto
+     * @return un mensaje indicando si se creo o no el album
+     */
     @PostMapping("/crear")
     public ResponseEntity<String> crearAlbumController(@RequestBody AlbumDTO albumDTO) {
         try{
@@ -28,6 +43,11 @@ public class MongoAlbumRestController {
         return ResponseEntity.ok().body("Album creado correctamente");
     }
 
+    /**
+     * Metodo para borrar el album de la base de datos
+     * @param id el is del album
+     * @return un mensaje indicando si se borro o no el album
+     */
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<String> borrarAlbumController(@PathVariable String id) {
         try{
@@ -38,6 +58,11 @@ public class MongoAlbumRestController {
         return ResponseEntity.ok().body("Album borrado correctamente");
     }
 
+    /**
+     * Metodo para listar un album por id
+     * @param id el id del album
+     * @return un objeto album
+     */
     @GetMapping("/listar/{id}")
     public ResponseEntity<Album> getAlbumById(@PathVariable String id) {
         try{
@@ -48,6 +73,10 @@ public class MongoAlbumRestController {
         }
     }
 
+    /**
+     * Metodo para listar todos los albumes
+     * @return la lista de albumes
+     */
     @GetMapping("/listar")
     public ResponseEntity<List<Album>> getAlbums() {
         try{
@@ -58,6 +87,12 @@ public class MongoAlbumRestController {
         }
     }
 
+    /**
+     * Metodo para actualizar un album de la base de datos
+     * @param id el is a buscar en la base
+     * @param albumDTO el album dto
+     * @return un mensaje indicando si se actualizó o no el album
+     */
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<String> actualizarAlbumByIdController(@PathVariable String id, @RequestBody AlbumDTO albumDTO) {
         try{

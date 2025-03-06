@@ -8,6 +8,7 @@ import com.example.AD.mongoService.repository.AlbumRepository;
 import com.example.AD.mongoService.repository.GrupoRepository;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class MongoAlbumService {
     }
 
     public void crearAlbum(AlbumDTO albumDTO) {
-        if(getIdGrupo(albumDTO.getGrupo_id())){
+        if(!getIdGrupo(albumDTO.getGrupo_id())){
             throw new IdExcepcion("Este id no pertenece a un grupo");
         }
         else{
@@ -32,10 +33,10 @@ public class MongoAlbumService {
         }
     }
 
-    public boolean getIdGrupo(String id){
+    private boolean getIdGrupo(String id){
         List<Grupo> grupoList = grupoRepository.findAll();
         for (Grupo grupo : grupoList) {
-            if(id.equals(grupo.getNome())){
+            if(id.equals(grupo.getId())){
                 return true;
             }
         }

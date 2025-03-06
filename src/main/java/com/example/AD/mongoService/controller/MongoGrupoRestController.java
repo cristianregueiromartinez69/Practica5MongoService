@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Practica5MongoService")
-public class MongoRestController {
+@RequestMapping("/Practica5MongoService/grupo")
+public class MongoGrupoRestController {
 
     public final MongoGrupoService mongoGrupoService;
 
-    public MongoRestController(MongoGrupoService mongoGrupoService) {
+    public MongoGrupoRestController(MongoGrupoService mongoGrupoService) {
         this.mongoGrupoService = mongoGrupoService;
     }
 

@@ -34,4 +34,9 @@ public class MongoGrupoService {
     public void deleteByIdService(String id){
         grupoRepository.deleteById(id);
     }
+
+    public void updateByIdService(String id, GrupoDTO grupoDTO){
+        Grupo grupo = new Grupo(grupoDTO.getNome(), grupoDTO.getXenero(), grupoDTO.getDataFormacion());
+        grupoRepository.updateByid(id, grupo);
+    }
 }

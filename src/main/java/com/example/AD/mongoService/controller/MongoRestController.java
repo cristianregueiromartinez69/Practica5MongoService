@@ -59,4 +59,14 @@ public class MongoRestController {
         return ResponseEntity.ok().body("Documento eliminado correctamente");
     }
 
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<String> actualizarDocumentoMongo(@PathVariable String id, @RequestBody GrupoDTO grupoDTO){
+        try{
+            mongoGrupoService.updateByIdService(id, grupoDTO);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok().body("Documento actualizado correctamente");
+    }
+
 }

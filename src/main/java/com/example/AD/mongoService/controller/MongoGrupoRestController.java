@@ -40,10 +40,10 @@ public class MongoGrupoRestController {
     }
 
     @GetMapping("/listar/{id}")
-    public ResponseEntity<List<Grupo>> listarGruposMongoByID(@PathVariable String id){
+    public ResponseEntity<Grupo> listarGruposMongoByID(@PathVariable String id){
         try{
-            List<Grupo> grupoList = mongoGrupoService.getListGrupoById(id);
-            return ResponseEntity.ok().body(grupoList);
+            Grupo grupo = mongoGrupoService.getListGrupoById(id);
+            return ResponseEntity.ok().body(grupo);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);
         }

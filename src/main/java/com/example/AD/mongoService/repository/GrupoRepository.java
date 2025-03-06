@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface GrupoRepository extends MongoRepository<Grupo, String> {
 
-    List<Grupo> findByid(String id);
+    Grupo findByid(String id);
 
 }

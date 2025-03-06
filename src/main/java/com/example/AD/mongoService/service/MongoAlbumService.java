@@ -36,6 +36,10 @@ public class MongoAlbumService {
         albumRepository.deleteById(id);
     }
 
+    public Album getAlbumsById(String id){
+        return albumRepository.findByid(id);
+    }
+
     private boolean getIdGrupo(String id){
         List<Grupo> grupoList = grupoRepository.findAll();
         for (Grupo grupo : grupoList) {

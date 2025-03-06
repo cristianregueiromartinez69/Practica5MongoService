@@ -28,7 +28,7 @@ public class MongoGrupoService {
         return grupoRepository.findAll();
     }
 
-    public List<Grupo> getListGrupoById(String id){
+    public Grupo getListGrupoById(String id){
         return grupoRepository.findByid(id);
     }
 

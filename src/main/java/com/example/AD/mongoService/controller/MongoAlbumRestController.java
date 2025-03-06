@@ -6,6 +6,8 @@ import com.example.AD.mongoService.service.MongoAlbumService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Practica5MongoService/album")
 public class MongoAlbumRestController {
@@ -41,6 +43,16 @@ public class MongoAlbumRestController {
         try{
             Album album = mongoAlbumService.getAlbumsById(id);
             return ResponseEntity.ok().body(album);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<Album>> getAlbums() {
+        try{
+            List<Album> albumList = mongoAlbumService.getAllAlbums();
+            return ResponseEntity.ok().body(albumList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);
         }

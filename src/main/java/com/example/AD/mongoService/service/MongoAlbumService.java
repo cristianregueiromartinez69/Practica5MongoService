@@ -40,6 +40,10 @@ public class MongoAlbumService {
         return albumRepository.findByid(id);
     }
 
+    public List<Album> getAllAlbums(){
+        return albumRepository.findAll();
+    }
+
     private boolean getIdGrupo(String id){
         List<Grupo> grupoList = grupoRepository.findAll();
         for (Grupo grupo : grupoList) {

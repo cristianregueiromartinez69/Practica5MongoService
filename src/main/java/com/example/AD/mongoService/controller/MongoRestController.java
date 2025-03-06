@@ -1,7 +1,8 @@
 package com.example.AD.mongoService.controller;
 
+import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
-import com.example.AD.mongoService.service.MongoService;
+import com.example.AD.mongoService.service.MongoGrupoService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +16,16 @@ import java.util.List;
 @RequestMapping("/mongoService")
 public class MongoRestController {
 
-    public final MongoService mongoService;
+    public final MongoGrupoService mongoGrupoService;
 
-    public MongoRestController(MongoService mongoService) {
-        this.mongoService = mongoService;
+    public MongoRestController(MongoGrupoService mongoGrupoService) {
+        this.mongoGrupoService = mongoGrupoService;
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<String> crearDocumentoMongo(@RequestBody Grupo grupo) {
+    public ResponseEntity<String> crearDocumentoMongo(@RequestBody GrupoDTO grupoDTO) {
         try{
-            mongoService.crearGrupo(grupo);
+            mongoGrupoService.crearGrupo(grupoDTO);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -34,7 +35,7 @@ public class MongoRestController {
     @GetMapping("/listar")
     public ResponseEntity<List<Grupo>> listarGruposMongo(){
         try{
-            List<Grupo> grupoList = mongoService.getListGrupo();
+            List<Grupo> grupoList = mongoGrupoService.getListGrupo();
             return ResponseEntity.ok().body(grupoList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

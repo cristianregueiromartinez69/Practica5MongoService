@@ -1,25 +1,26 @@
 package com.example.AD.mongoService.service;
 
+import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
-import com.example.AD.mongoService.repository.AlbumRepository;
 import com.example.AD.mongoService.repository.GrupoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class MongoService {
+public class MongoGrupoService {
 
     public final GrupoRepository grupoRepository;
-    public final AlbumRepository albumRepository;
 
-    public MongoService(GrupoRepository grupoRepository, AlbumRepository albumRepository) {
+    public MongoGrupoService(GrupoRepository grupoRepository) {
         this.grupoRepository = grupoRepository;
-        this.albumRepository = albumRepository;
     }
 
-    public void crearGrupo(Grupo grupo){
+    public void crearGrupo(GrupoDTO grupoDTO) {
+        Grupo grupo = new Grupo(grupoDTO.getId(), grupoDTO.getNome(),
+                grupoDTO.getXenero(), grupoDTO.getDataFormacion());
         grupoRepository.save(grupo);
+
     }
 
     public List<Grupo> getListGrupo(){

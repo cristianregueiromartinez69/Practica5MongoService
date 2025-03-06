@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.AD</groupId>
-	<artifactId>mongoService</artifactId>
+	<artifactId>mongoGrupoService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mongoService</name>
 	<description>Servicio de mongo parala practica 5</description>

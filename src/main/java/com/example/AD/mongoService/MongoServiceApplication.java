@@ -12,5 +12,5 @@ public class MongoServiceApplication {
 		SpringApplication.run(MongoServiceApplication.class, args);
 	}
 
-	//TODO: vamos a la segunda entidad
+	//TODO: vamos a corregir 2 endpoints y bugs
 }

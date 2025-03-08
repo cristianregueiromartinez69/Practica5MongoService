@@ -7,12 +7,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+/**
+ * Entidad de grupos con el documento
+ * @author cristian
+ * @version 1.0
+ */
 @Document(collection = "grupos")
 public class Grupo {
 
+    //clave primaria
     @Id
     private String id;
 
+    //atributos de clase
     @JsonProperty("nome")
     private String nome;
 
@@ -23,6 +30,13 @@ public class Grupo {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataFormacion;
 
+    /**
+     * Constructor de la clase
+     * @param id la clave primaria
+     * @param nome el nombre del grupo
+     * @param xenero el genero del grupo
+     * @param dataFormacion la fecha de formacion del grupo
+     */
     public Grupo(String id, String nome, String xenero, LocalDate dataFormacion) {
         this.id = id;
         this.nome = nome;
@@ -40,6 +54,7 @@ public class Grupo {
 
     }
 
+    //getter y setter
     public String getId() {
         return id;
     }

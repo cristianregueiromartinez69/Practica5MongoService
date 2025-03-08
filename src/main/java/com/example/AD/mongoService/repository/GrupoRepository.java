@@ -4,11 +4,15 @@ import com.example.AD.mongoService.model.entity.Grupo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+/**
+ * Repositorio de la clase de grupos
+ * @author cristian
+ * @version 1.0
+ */
 @Repository
 public interface GrupoRepository extends MongoRepository<Grupo, String> {
 
-    List<Grupo> findByid(String id);
+    //busqueda de grupo por id
+    Grupo findByid(String id);
 
 }

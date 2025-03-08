@@ -1,21 +1,14 @@
-package com.example.AD.mongoService.model.entity;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+package com.example.AD.mongoService.model.dto;
 
 import java.time.LocalDate;
 
+
 /**
- * Entidad de albumes con el documento
+ * Clase DTO de album
  * @author cristian
  * @version 1.0
  */
-@Document(collection = "albums")
-public class Album {
-
-    //clave primaria
-    @Id
-    private String id;
+public class AlbumDTO {
 
     //atributos de clase
     private String grupo_id;
@@ -23,42 +16,25 @@ public class Album {
     private LocalDate data_lanzamento;
     private float puntuacion;
 
+
     /**
      * Constructor de la clase
-     * @param id la clave primaria
-     * @param grupo_id el id del grupo al que pertenece el album
+     * @param grupo_id el id del grupo
      * @param titulo el titulo del album
-     * @param data_lanzamento la fecha de lanzamiento del album
+     * @param data_lanzamento la fecha de lanzamiento
      * @param puntuacion la puntuacion del album
      */
-    public Album(String id, String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
-        this.id = id;
+    public AlbumDTO(String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
         this.grupo_id = grupo_id;
         this.titulo = titulo;
         this.data_lanzamento = data_lanzamento;
         this.puntuacion = puntuacion;
     }
 
-    public Album(String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
-        this.grupo_id = grupo_id;
-        this.titulo = titulo;
-        this.data_lanzamento = data_lanzamento;
-        this.puntuacion = puntuacion;
-    }
-
-    public Album() {
-
+    public AlbumDTO() {
     }
 
     //getter y setter
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getGrupo_id() {
         return grupo_id;
     }

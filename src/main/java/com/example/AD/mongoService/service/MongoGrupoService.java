@@ -32,7 +32,7 @@ public class MongoGrupoService {
      * @param grupoDTO el grupo dto
      */
     public void crearGrupo(GrupoDTO grupoDTO) {
-        Grupo grupo = new Grupo(grupoDTO.getNome(),
+        Grupo grupo = new Grupo(grupoDTO.getId(), grupoDTO.getNome(),
                 grupoDTO.getXenero(), grupoDTO.getDataFormacion());
         grupoRepository.save(grupo);
 

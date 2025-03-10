@@ -54,6 +54,9 @@ public class MongoGrupoRestController {
     public ResponseEntity<List<Grupo>> listarGruposMongo(){
         try{
             List<Grupo> grupoList = mongoGrupoService.getListGrupo();
+            if(grupoList.isEmpty()){
+                return ResponseEntity.badRequest().body(null);
+            }
             return ResponseEntity.ok().body(grupoList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

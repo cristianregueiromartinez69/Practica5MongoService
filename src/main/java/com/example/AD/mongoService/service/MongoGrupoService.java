@@ -43,6 +43,10 @@ public class MongoGrupoService {
      * @return la lista de grupos
      */
     public List<Grupo> getListGrupo(){
+        List<Grupo> grupos = grupoRepository.findAll();
+        if(grupos.isEmpty()){
+            return null;
+        }
         return grupoRepository.findAll();
     }
 

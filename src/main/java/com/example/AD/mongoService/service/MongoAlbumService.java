@@ -45,11 +45,9 @@ public class MongoAlbumService {
         if(!getIdGrupo(albumDTO.getGrupo_id())){
             throw new IdExcepcion("Este id no pertenece a un grupo");
         }
-        else{
             Album album = new Album(albumDTO.getId(), albumDTO.getGrupo_id(), albumDTO.getTitulo(),
                     albumDTO.getData_lanzamento(), albumDTO.getPuntuacion());
             albumRepository.save(album);
-        }
     }
 
     /**

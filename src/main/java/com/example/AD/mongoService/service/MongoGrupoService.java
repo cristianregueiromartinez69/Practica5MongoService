@@ -81,7 +81,10 @@ public class MongoGrupoService {
      * @param grupoDTO el grupo con los datos actualizados
      */
     public void updateByIdService(String id, GrupoDTO grupoDTO){
-        Grupo grupo = grupoRepository.findById(id).orElseThrow(() -> new IdExcepcion("No existe el id del grupo"));
+        Grupo grupo = grupoRepository.findByid(id);
+        if(grupo == null){
+            throw new IdExcepcion("Este id no existe para actualizar un grupo");
+        }
         grupo.setNome(grupoDTO.getNome());
         grupo.setXenero(grupoDTO.getXenero());
         grupo.setDataFormacion(grupoDTO.getDataFormacion());

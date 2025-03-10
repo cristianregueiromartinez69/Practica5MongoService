@@ -12,25 +12,25 @@ public class AlbumDTO {
 
     //atributos de clase
     private String id;
-    private String grupo_id;
+    private String grupoID;
     private String titulo;
-    private LocalDate data_lanzamento;
+    private LocalDate dataLanzamento;
     private float puntuacion;
 
 
     /**
      * Constructor de la clase
      * @param id el id del album
-     * @param grupo_id el id del grupo
+     * @param grupoID el id del grupo
      * @param titulo el titulo del album
-     * @param data_lanzamento la fecha de lanzamiento
+     * @param dataLanzamento la fecha de lanzamiento
      * @param puntuacion la puntuacion del album
      */
-    public AlbumDTO(String id, String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
+    public AlbumDTO(String id, String grupoID, String titulo, LocalDate dataLanzamento, float puntuacion) {
         this.id = id;
-        this.grupo_id = grupo_id;
+        this.grupoID = grupoID;
         this.titulo = titulo;
-        this.data_lanzamento = data_lanzamento;
+        this.dataLanzamento = dataLanzamento;
         this.puntuacion = puntuacion;
     }
 
@@ -46,12 +46,12 @@ public class AlbumDTO {
     }
 
     //getter y setter
-    public String getGrupo_id() {
-        return grupo_id;
+    public String getGrupoID() {
+        return grupoID;
     }
 
-    public void setGrupo_id(String grupo_id) {
-        this.grupo_id = grupo_id;
+    public void setGrupoID(String grupoID) {
+        this.grupoID = grupoID;
     }
 
     public String getTitulo() {
@@ -62,12 +62,12 @@ public class AlbumDTO {
         this.titulo = titulo;
     }
 
-    public LocalDate getData_lanzamento() {
-        return data_lanzamento;
+    public LocalDate getDataLanzamento() {
+        return dataLanzamento;
     }
 
-    public void setData_lanzamento(LocalDate data_lanzamento) {
-        this.data_lanzamento = data_lanzamento;
+    public void setDataLanzamento(LocalDate dataLanzamento) {
+        this.dataLanzamento = dataLanzamento;
     }
 
     public float getPuntuacion() {

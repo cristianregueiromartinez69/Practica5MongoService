@@ -42,11 +42,11 @@ public class MongoAlbumService {
      * @throws IdExcepcion Si el ID del grupo no es válido.
      */
     public void crearAlbum(AlbumDTO albumDTO) {
-        if(!getIdGrupo(albumDTO.getGrupo_id())){
+        if(!getIdGrupo(albumDTO.getGrupoID())){
             throw new IdExcepcion("Este id no pertenece a un grupo para ser creado");
         }
-            Album album = new Album(albumDTO.getId(), albumDTO.getGrupo_id(), albumDTO.getTitulo(),
-                    albumDTO.getData_lanzamento(), albumDTO.getPuntuacion());
+            Album album = new Album(albumDTO.getId(), albumDTO.getGrupoID(), albumDTO.getTitulo(),
+                    albumDTO.getDataLanzamento(), albumDTO.getPuntuacion());
             albumRepository.save(album);
     }
 
@@ -101,7 +101,7 @@ public class MongoAlbumService {
         Album album = albumRepository.findByid(id);
         if(album != null){
             album.setTitulo(albumDTO.getTitulo());
-            album.setData_lanzamento(albumDTO.getData_lanzamento());
+            album.setData_lanzamento(albumDTO.getDataLanzamento());
             album.setPuntuacion(albumDTO.getPuntuacion());
             albumRepository.save(album);
         }

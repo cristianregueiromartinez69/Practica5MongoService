@@ -68,6 +68,10 @@ public class MongoGrupoService {
      * @param id el is del grupo
      */
     public void deleteByIdService(String id){
+        Grupo grupo = grupoRepository.findByid(id);
+        if(grupo == null){
+            throw new IdExcepcion("Este id no existe para borrar un grupo");
+        }
         grupoRepository.deleteById(id);
     }
 

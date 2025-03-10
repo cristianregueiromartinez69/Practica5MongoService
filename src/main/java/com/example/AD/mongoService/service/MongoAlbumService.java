@@ -83,6 +83,10 @@ public class MongoAlbumService {
      * @return Una lista con todos los álbumes.
      */
     public List<Album> getAllAlbums(){
+        List<Album> albums = albumRepository.findAll();
+        if(albums.isEmpty()){
+            return null;
+        }
         return albumRepository.findAll();
     }
 

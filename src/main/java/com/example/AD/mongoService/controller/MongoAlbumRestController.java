@@ -84,6 +84,9 @@ public class MongoAlbumRestController {
     public ResponseEntity<List<Album>> getAlbums() {
         try{
             List<Album> albumList = mongoAlbumService.getAllAlbums();
+            if(albumList == null){
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(albumList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

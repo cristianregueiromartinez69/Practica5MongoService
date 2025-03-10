@@ -43,7 +43,7 @@ public class MongoAlbumService {
      */
     public void crearAlbum(AlbumDTO albumDTO) {
         if(!getIdGrupo(albumDTO.getGrupo_id())){
-            throw new IdExcepcion("Este id no pertenece a un grupo");
+            throw new IdExcepcion("Este id no pertenece a un grupo para ser creado");
         }
             Album album = new Album(albumDTO.getId(), albumDTO.getGrupo_id(), albumDTO.getTitulo(),
                     albumDTO.getData_lanzamento(), albumDTO.getPuntuacion());
@@ -56,6 +56,10 @@ public class MongoAlbumService {
      * @param id El identificador único del álbum a eliminar.
      */
     public void deleteAlbumById(String id) {
+        Album album = albumRepository.findByid(id);
+        if(album == null){
+            throw new IdExcepcion("Este id no pertenece a un album para ser borrado");
+        }
         albumRepository.deleteById(id);
     }
 

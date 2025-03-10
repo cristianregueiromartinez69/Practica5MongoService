@@ -1,6 +1,5 @@
 package com.example.AD.mongoService.controller;
 
-import com.example.AD.mongoService.excepciones.IdExcepcion;
 import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
 import com.example.AD.mongoService.service.MongoGrupoService;

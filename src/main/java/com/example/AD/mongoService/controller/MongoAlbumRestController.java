@@ -67,6 +67,9 @@ public class MongoAlbumRestController {
     public ResponseEntity<Album> getAlbumById(@PathVariable String id) {
         try{
             Album album = mongoAlbumService.getAlbumsById(id);
+            if(album == null){
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(album);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);
@@ -81,6 +84,9 @@ public class MongoAlbumRestController {
     public ResponseEntity<List<Album>> getAlbums() {
         try{
             List<Album> albumList = mongoAlbumService.getAllAlbums();
+            if(albumList == null){
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(albumList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

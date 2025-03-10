@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class AlbumDTO {
 
     //atributos de clase
+    private String id;
     private String grupo_id;
     private String titulo;
     private LocalDate data_lanzamento;
@@ -19,12 +20,14 @@ public class AlbumDTO {
 
     /**
      * Constructor de la clase
+     * @param id el id del album
      * @param grupo_id el id del grupo
      * @param titulo el titulo del album
      * @param data_lanzamento la fecha de lanzamiento
      * @param puntuacion la puntuacion del album
      */
-    public AlbumDTO(String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
+    public AlbumDTO(String id, String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
+        this.id = id;
         this.grupo_id = grupo_id;
         this.titulo = titulo;
         this.data_lanzamento = data_lanzamento;
@@ -32,6 +35,14 @@ public class AlbumDTO {
     }
 
     public AlbumDTO() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     //getter y setter

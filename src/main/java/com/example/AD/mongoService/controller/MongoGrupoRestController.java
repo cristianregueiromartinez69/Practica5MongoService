@@ -1,5 +1,6 @@
 package com.example.AD.mongoService.controller;
 
+import com.example.AD.mongoService.excepciones.IdExcepcion;
 import com.example.AD.mongoService.model.dto.GrupoDTO;
 import com.example.AD.mongoService.model.entity.Grupo;
 import com.example.AD.mongoService.service.MongoGrupoService;
@@ -54,6 +55,9 @@ public class MongoGrupoRestController {
     public ResponseEntity<List<Grupo>> listarGruposMongo(){
         try{
             List<Grupo> grupoList = mongoGrupoService.getListGrupo();
+            if(grupoList.isEmpty()){
+                return ResponseEntity.badRequest().body(null);
+            }
             return ResponseEntity.ok().body(grupoList);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);
@@ -70,6 +74,9 @@ public class MongoGrupoRestController {
     public ResponseEntity<Grupo> listarGruposMongoByID(@PathVariable String id){
         try{
             Grupo grupo = mongoGrupoService.getListGrupoById(id);
+            if(grupo == null){
+                return ResponseEntity.badRequest().body(null);
+            }
             return ResponseEntity.ok().body(grupo);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

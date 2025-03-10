@@ -43,13 +43,11 @@ public class MongoAlbumService {
      */
     public void crearAlbum(AlbumDTO albumDTO) {
         if(!getIdGrupo(albumDTO.getGrupo_id())){
-            throw new IdExcepcion("Este id no pertenece a un grupo");
+            throw new IdExcepcion("Este id no pertenece a un grupo para ser creado");
         }
-        else{
-            Album album = new Album(albumDTO.getGrupo_id(), albumDTO.getTitulo(),
+            Album album = new Album(albumDTO.getId(), albumDTO.getGrupo_id(), albumDTO.getTitulo(),
                     albumDTO.getData_lanzamento(), albumDTO.getPuntuacion());
             albumRepository.save(album);
-        }
     }
 
     /**
@@ -58,6 +56,10 @@ public class MongoAlbumService {
      * @param id El identificador único del álbum a eliminar.
      */
     public void deleteAlbumById(String id) {
+        Album album = albumRepository.findByid(id);
+        if(album == null){
+            throw new IdExcepcion("Este id no pertenece a un album para ser borrado");
+        }
         albumRepository.deleteById(id);
     }
 
@@ -68,6 +70,10 @@ public class MongoAlbumService {
      * @return El álbum correspondiente al ID proporcionado.
      */
     public Album getAlbumsById(String id){
+        Album album = albumRepository.findByid(id);
+        if(album == null){
+            return null;
+        }
         return albumRepository.findByid(id);
     }
 
@@ -77,6 +83,10 @@ public class MongoAlbumService {
      * @return Una lista con todos los álbumes.
      */
     public List<Album> getAllAlbums(){
+        List<Album> albums = albumRepository.findAll();
+        if(albums.isEmpty()){
+            return null;
+        }
         return albumRepository.findAll();
     }
 

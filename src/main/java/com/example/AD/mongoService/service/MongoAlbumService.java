@@ -70,6 +70,10 @@ public class MongoAlbumService {
      * @return El álbum correspondiente al ID proporcionado.
      */
     public Album getAlbumsById(String id){
+        Album album = albumRepository.findByid(id);
+        if(album == null){
+            return null;
+        }
         return albumRepository.findByid(id);
     }
 

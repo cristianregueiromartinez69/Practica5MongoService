@@ -67,6 +67,9 @@ public class MongoAlbumRestController {
     public ResponseEntity<Album> getAlbumById(@PathVariable String id) {
         try{
             Album album = mongoAlbumService.getAlbumsById(id);
+            if(album == null){
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok().body(album);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(null);

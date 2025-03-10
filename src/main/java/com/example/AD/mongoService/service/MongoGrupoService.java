@@ -56,6 +56,10 @@ public class MongoGrupoService {
      * @return el grupo o nada
      */
     public Grupo getListGrupoById(String id){
+        Grupo grupo = grupoRepository.findByid(id);
+        if(grupo == null){
+            return null;
+        }
         return grupoRepository.findByid(id);
     }
 
